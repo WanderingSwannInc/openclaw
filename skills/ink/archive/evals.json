@@ -1,0 +1,121 @@
+[
+  {
+    "prompt": "Create a simple interactive menu CLI using Ink that lets users select from a list of programming languages (JavaScript, Python, Rust, Go) and displays their choice.",
+    "expectations": [
+      "Creates a working Ink component with menu navigation",
+      "Uses useInput hook for keyboard controls (up/down arrows, enter)",
+      "Displays visual indicator for selected item",
+      "Handles selection and displays the result",
+      "Includes instructions for the user (e.g., how to navigate and select)",
+      "Uses Box and Text components appropriately"
+    ]
+  },
+  {
+    "prompt": "Build a CLI tool that shows a progress bar while simulating a file download. It should display percentage, downloaded/total size, and estimated time remaining.",
+    "expectations": [
+      "Creates a progress bar component",
+      "Simulates async operation (download) with progress updates",
+      "Displays percentage completion",
+      "Shows downloaded vs total (e.g., '50MB / 100MB')",
+      "Uses setInterval or similar for updates",
+      "Properly cleans up on completion",
+      "Visual progress bar using characters or Spinner component"
+    ]
+  },
+  {
+    "prompt": "Create a multi-step form CLI that collects name, email, and favorite color from the user. Show validation errors if email is invalid.",
+    "expectations": [
+      "Uses TextInput component (or mentions ink-text-input)",
+      "Implements multi-step form flow",
+      "Validates email format",
+      "Shows error messages for invalid input",
+      "Allows navigation between steps",
+      "Displays summary at the end",
+      "Uses proper state management"
+    ]
+  },
+  {
+    "prompt": "Build a complete CLI application with argument parsing that can either run in interactive mode or accept command-line flags. Example: `my-tool --name John` should skip the interactive prompt.",
+    "expectations": [
+      "Includes argument parsing setup (meow, yargs, or commander)",
+      "Creates package.json with bin entry",
+      "Implements conditional rendering based on CLI flags",
+      "Shows both interactive mode and direct flag usage",
+      "Includes shebang for executable",
+      "Proper TypeScript types if using TS",
+      "Help text with examples"
+    ]
+  },
+  {
+    "prompt": "Create a file watcher CLI that monitors a directory and shows a live list of recently changed files with timestamps.",
+    "expectations": [
+      "Uses fs.watch or similar for file system monitoring",
+      "Implements useEffect with cleanup",
+      "Displays live-updating file list",
+      "Shows timestamps for changes",
+      "Handles multiple file changes",
+      "Proper cleanup on unmount/exit",
+      "Shows current watching status"
+    ]
+  },
+  {
+    "prompt": "Write tests for an Ink component that renders a menu with items. Test that it renders correctly and responds to keyboard input.",
+    "expectations": [
+      "Uses ink-testing-library",
+      "Tests rendering of menu items",
+      "Tests keyboard input simulation",
+      "Tests selection callback",
+      "Uses proper test assertions",
+      "Shows how to check lastFrame() output",
+      "Demonstrates stdin.write for input testing"
+    ]
+  },
+  {
+    "prompt": "Build a dashboard CLI that displays system stats (CPU, memory, disk) in a table format with auto-refresh every 2 seconds.",
+    "expectations": [
+      "Creates table component with aligned columns",
+      "Implements auto-refresh with setInterval",
+      "Shows multiple data points in organized layout",
+      "Uses Box for layout structure",
+      "Proper cleanup of intervals",
+      "Visual separation between data (headers, rows)",
+      "Handles dynamic data updates"
+    ]
+  },
+  {
+    "prompt": "Create an Ink component that shows loading states with a spinner, then displays error state if something fails, with proper error handling patterns.",
+    "expectations": [
+      "Uses Spinner component or creates custom spinner",
+      "Implements loading/error/success states",
+      "Shows error boundaries or try-catch",
+      "Displays error message clearly",
+      "Uses appropriate colors (red for errors, green for success)",
+      "Proper async/await patterns",
+      "Exit or retry options on error"
+    ]
+  },
+  {
+    "prompt": "I want to build a CLI tool but I'm not sure where to start. I want it to be a task manager that lets me add, list, and complete tasks.",
+    "expectations": [
+      "Asks clarifying questions or provides guidance on approach",
+      "Suggests project structure",
+      "Recommends starting with basic features (add, list)",
+      "Mentions state persistence (file system or DB)",
+      "Outlines navigation flow",
+      "Suggests libraries (meow for args, ink for UI)",
+      "Provides initial code structure or template"
+    ]
+  },
+  {
+    "prompt": "How do I handle the case where a user presses Ctrl+C in my Ink app? I want to clean up resources before exiting.",
+    "expectations": [
+      "Mentions useApp hook with exit function",
+      "Explains process.on('SIGINT') for Ctrl+C handling",
+      "Shows cleanup pattern in useEffect return",
+      "Demonstrates graceful shutdown",
+      "Mentions difference between exit() and process.exit()",
+      "Shows example code for cleanup",
+      "Warns about proper resource cleanup"
+    ]
+  }
+]
