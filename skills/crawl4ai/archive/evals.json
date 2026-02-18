@@ -1,0 +1,157 @@
+[
+  {
+    "prompt": "Write a simple Python script using Crawl4AI to scrape https://example.com and print the first 500 characters of the Markdown output.",
+    "expectations": [
+      "Imports AsyncWebCrawler from crawl4ai",
+      "Uses async/await pattern with asyncio",
+      "Creates AsyncWebCrawler with context manager (async with)",
+      "Calls arun() method with URL",
+      "Accesses result.markdown",
+      "Includes asyncio.run() to execute the async function",
+      "Code is complete and runnable"
+    ]
+  },
+  {
+    "prompt": "I need to extract product information from an e-commerce site. Each product is in a div.product with h2.title, span.price, and img elements. Show me how to do this with CSS selectors.",
+    "expectations": [
+      "Uses JsonCssExtractionStrategy",
+      "Defines schema with baseSelector set to 'div.product'",
+      "Includes fields for title, price, and image",
+      "Shows proper field types (text, attribute)",
+      "For image, specifies attribute: 'src'",
+      "Passes strategy to arun() via extraction_strategy parameter",
+      "Parses result.extracted_content as JSON",
+      "Complete working example"
+    ]
+  },
+  {
+    "prompt": "How do I use Crawl4AI with an LLM to extract article data (title, author, date, summary) from a news website?",
+    "expectations": [
+      "Imports LLMExtractionStrategy and LLMConfig",
+      "Configures LLMConfig with provider and api_token",
+      "Creates LLMExtractionStrategy with instruction parameter",
+      "Instruction clearly describes what data to extract",
+      "Shows extraction_type parameter",
+      "Mentions using Pydantic schema or basic JSON schema",
+      "Passes strategy to crawler.arun()",
+      "Includes note about cost/speed tradeoff vs CSS extraction"
+    ]
+  },
+  {
+    "prompt": "I have a website with a 'Load More' button that loads content dynamically. How can I click it and wait for the new content before extracting?",
+    "expectations": [
+      "Uses js_code parameter in CrawlerRunConfig",
+      "JavaScript code clicks the button (querySelector, click())",
+      "Includes wait/delay in JavaScript or uses wait_for parameter",
+      "Shows proper async await in JavaScript",
+      "Uses delay_before_return_html or wait_for selector",
+      "Complete example with both crawler configuration and extraction",
+      "Mentions multiple clicks if needed (loop)"
+    ]
+  },
+  {
+    "prompt": "Show me how to scrape multiple pages (pagination) using sessions in Crawl4AI. I want to go through 5 pages of results.",
+    "expectations": [
+      "Uses session_id parameter",
+      "Creates a loop for multiple pages",
+      "Reuses same session_id across arun() calls",
+      "Shows how to trigger next page (js_code or URL change)",
+      "Calls kill_session() at the end",
+      "Accumulates results from all pages",
+      "Includes rate limiting (asyncio.sleep)",
+      "Proper async structure"
+    ]
+  },
+  {
+    "prompt": "I need to scrape a website that requires login. How do I authenticate using Crawl4AI hooks?",
+    "expectations": [
+      "Uses on_page_context_created hook",
+      "Shows how to set cookies using context.add_cookies()",
+      "Or shows form-based login (goto, fill, click, wait)",
+      "Uses crawler.crawler_strategy.set_hook()",
+      "Mentions that on_page_context_created is the right hook for auth",
+      "Includes proper async function signature (page, context, **kwargs)",
+      "Warns about not using on_browser_created for auth",
+      "Complete working example"
+    ]
+  },
+  {
+    "prompt": "How can I use Crawl4AI to extract all email addresses and phone numbers from a contact page?",
+    "expectations": [
+      "Uses RegexExtractionStrategy",
+      "Mentions it extracts common patterns automatically",
+      "Shows how to access extracted emails and phones from result",
+      "Parses result.extracted_content as JSON",
+      "Shows accessing data.get('emails', []) and data.get('phones', [])",
+      "Complete example with imports and async structure",
+      "Notes that this is fast and doesn't require LLM"
+    ]
+  },
+  {
+    "prompt": "I want to crawl multiple URLs in parallel and handle any failures gracefully. What's the best approach?",
+    "expectations": [
+      "Uses arun_many() method",
+      "Shows list of URLs",
+      "Checks result.success for each result",
+      "Handles failed crawls (logs error_message)",
+      "Mentions MemoryAdaptiveDispatcher handles concurrency automatically",
+      "Shows proper error handling with try/except",
+      "Includes rate limiting considerations",
+      "Demonstrates collecting successful and failed URLs separately"
+    ]
+  },
+  {
+    "prompt": "Explain the difference between CSS extraction and LLM extraction in Crawl4AI, and when I should use each.",
+    "expectations": [
+      "Explains CSS/XPath is fast, free, deterministic",
+      "Explains LLM is intelligent but slower and costs money",
+      "CSS is better for structured, consistent pages",
+      "LLM is better for unstructured or variable content",
+      "Mentions CSS requires knowing page structure",
+      "LLM can handle reasoning and summarization",
+      "Provides decision criteria (structure, speed, cost, complexity)",
+      "May mention hybrid approaches"
+    ]
+  },
+  {
+    "prompt": "How do I use adaptive crawling in Crawl4AI to automatically stop when I have enough information about a topic?",
+    "expectations": [
+      "Imports AdaptiveCrawler",
+      "Creates AdaptiveCrawler instance with crawler",
+      "Uses digest() method with start_url and query parameters",
+      "Shows how to access confidence and statistics",
+      "Demonstrates get_relevant_content() method",
+      "Explains it automatically stops when sufficient info gathered",
+      "Shows print_stats() for viewing metrics",
+      "Mentions confidence, coverage, consistency metrics"
+    ]
+  },
+  {
+    "prompt": "I'm getting blocked by websites. What stealth techniques can I use with Crawl4AI?",
+    "expectations": [
+      "Configures BrowserConfig with proper user_agent",
+      "Shows extra_args with stealth flags",
+      "Mentions '--disable-blink-features=AutomationControlled'",
+      "Discusses proxy configuration",
+      "Suggests rotating user agents",
+      "Mentions adding delays between requests",
+      "Shows browser fingerprint considerations",
+      "May mention headless detection countermeasures"
+    ]
+  },
+  {
+    "prompt": "Create a complete production-ready scraper class that handles errors, retries, rate limiting, and saves results to JSON.",
+    "expectations": [
+      "Defines a class with proper structure",
+      "Includes error handling with try/except",
+      "Implements retry logic or mentions it",
+      "Has rate limiting with asyncio.sleep()",
+      "Saves results to JSON file",
+      "Has methods for single and multiple pages",
+      "Uses proper async/await patterns",
+      "Includes configuration (schema, browser config)",
+      "Has logging or status updates",
+      "Clean, well-structured code"
+    ]
+  }
+]
